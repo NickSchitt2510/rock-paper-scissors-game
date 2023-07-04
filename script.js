@@ -15,13 +15,15 @@ function getComputerChoice() {
 
 // Change text input to number
 function choiceToNumber(choice) {
-    choice = choice.toLowerCase()
     switch (choice) {
         case "rock":
+        case "Rock":
             return 0;
         case "paper":
+        case "Paper":
             return 1;
         case 'scissors':
+        case 'Scissors':
             return 2;
     }
 }
@@ -41,7 +43,7 @@ function numberToChoice(number) {
 function playRound(playerSelection, computerSelection) {
     //computerSelection is number
     //playerSelection is string
-    playerSelection = choiceToNumber(playerSelection)
+    playerSelection = choiceToNumber(playerSelection);
     if (playerSelection === computerSelection) {
         return "Draw";
     }
@@ -52,6 +54,19 @@ function playRound(playerSelection, computerSelection) {
         return "Computer won";
     }
 }
+
+console.log(prompt("Choose your option", "Rock, Paper, or Scissors?"));
+// let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
+
+
+// if (playerChoice){
+//     console.log("Has value");
+// } else if (playerChoice === "") {
+//     console.log("Empty response");
+// } else {
+//     console.log("Bye");
+// }
+
 
 
 // Pseudo code:
