@@ -15,16 +15,19 @@ function getComputerChoice() {
 
 // Change text input to number
 function choiceToNumber(choice) {
-    switch (choice) {
-        case "rock":
-        case "Rock":
-            return 0;
-        case "paper":
-        case "Paper":
-            return 1;
-        case 'scissors':
-        case 'Scissors':
-            return 2;
+    // console.log(typeof(choice));
+    let result;
+    if (choice == "rock" || choice == "Rock") {
+        result = 0;
+        return result;
+    } else if (choice == "paper" || choice == "Paper") {
+        result = 1;
+        return result;
+    } else if (choice == "scissors" || choice == "Scissors") {
+        result = 2;
+        return result;
+    } else {
+        return false;
     }
 }
 
@@ -33,39 +36,45 @@ function numberToChoice(number) {
     switch (number) {
         case 0:
             return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return 'scissors';
+            case 1:
+                return "paper";
+                case 2:
+                    return 'scissors';
     }
 }
 
 function playRound(playerSelection, computerSelection) {
-    //computerSelection is number
-    //playerSelection is string
-    playerSelection = choiceToNumber(playerSelection);
+    //computerSelection and playerSelection are numbers
+
     if (playerSelection === computerSelection) {
         return "Draw";
     }
-    else if (playerSelection == 0 && computerSelection === 2 || playerSelection == 1 && computerSelection === 0 || playerSelection == 2 && computerSelection === 1) {
+    else if (playerSelection === 0 && computerSelection === 2 || playerSelection === 1 && computerSelection === 0 || playerSelection === 2 && computerSelection === 1) {
         return "Player won";
     }
-    else if (playerSelection == 0 && computerSelection === 1 || playerSelection == 1 && computerSelection === 2 || playerSelection == 2 && computerSelection === 0) {
+    else if (playerSelection === 0 && computerSelection === 1 || playerSelection === 1 && computerSelection === 2 || playerSelection === 2 && computerSelection === 0) {
         return "Computer won";
+    }
+    else {
+        return "Weird";
     }
 }
 
-console.log(prompt("Choose your option", "Rock, Paper, or Scissors?"));
-// let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
+let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
+playerChoice = choiceToNumber(playerChoice);
+// console.log(playerChoice); //number
+computerChoice = getComputerChoice();
+// console.log(computerChoice);
+// console.log(playRound(playerChoice, computerChoice));
 
+function game() {
+        let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
+    // console.log(playerChoice);
+    playerChoice = choiceToNumber(playerChoice);
+    // console.log(playerChoice);
+}
 
-// if (playerChoice){
-//     console.log("Has value");
-// } else if (playerChoice === "") {
-//     console.log("Empty response");
-// } else {
-//     console.log("Bye");
-// }
+// game();
 
 
 
