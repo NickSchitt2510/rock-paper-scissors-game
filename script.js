@@ -13,17 +13,34 @@ function getComputerChoice() {
     }
 }
 
+// // Change text input to number
+// function choiceToNumber(choice) {
+//     // console.log(typeof(choice));
+//     let result;
+//     if (choice == "rock" || choice == "Rock") {
+//         result = 0;
+//         return result;
+//     } else if (choice == "paper" || choice == "Paper") {
+//         result = 1;
+//         return result;
+//     } else if (choice == "scissors" || choice == "Scissors") {
+//         result = 2;
+//         return result;
+//     } else {
+//         return false;
+//     }
+// }
 // Change text input to number
 function choiceToNumber(choice) {
     // console.log(typeof(choice));
     let result;
-    if (choice == "rock" || choice == "Rock") {
+    if (choice.toLowerCase() == "rock") {
         result = 0;
         return result;
-    } else if (choice == "paper" || choice == "Paper") {
+    } else if (choice.toLowerCase() == "paper") {
         result = 1;
         return result;
-    } else if (choice == "scissors" || choice == "Scissors") {
+    } else if (choice.toLowerCase() == "scissors") {
         result = 2;
         return result;
     } else {
