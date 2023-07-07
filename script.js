@@ -53,10 +53,10 @@ function numberToChoice(number) {
     switch (number) {
         case 0:
             return "rock";
-            case 1:
-                return "paper";
-                case 2:
-                    return 'scissors';
+        case 1:
+            return "paper";
+        case 2:
+            return 'scissors';
     }
 }
 
@@ -77,21 +77,26 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
-playerChoice = choiceToNumber(playerChoice);
-// console.log(playerChoice); //number
-computerChoice = getComputerChoice();
-// console.log(computerChoice);
-// console.log(playRound(playerChoice, computerChoice));
+// let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
+// playerChoice = choiceToNumber(playerChoice);
+// // console.log(playerChoice); //number
 
 function game() {
+    let roundCount = 0;
+    while (roundCount < 5)
+    {
         let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
-    // console.log(playerChoice);
-    playerChoice = choiceToNumber(playerChoice);
-    // console.log(playerChoice);
+        console.log(playerChoice);
+        playerChoice = choiceToNumber(playerChoice);
+        console.log(playerChoice);
+        computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        console.log(playRound(playerChoice, computerChoice));
+        roundCount++;
+    }
 }
 
-// game();
+game();
 
 
 
