@@ -13,23 +13,7 @@ function getComputerChoice() {
     }
 }
 
-// // Change text input to number
-// function choiceToNumber(choice) {
-//     // console.log(typeof(choice));
-//     let result;
-//     if (choice == "rock" || choice == "Rock") {
-//         result = 0;
-//         return result;
-//     } else if (choice == "paper" || choice == "Paper") {
-//         result = 1;
-//         return result;
-//     } else if (choice == "scissors" || choice == "Scissors") {
-//         result = 2;
-//         return result;
-//     } else {
-//         return false;
-//     }
-// }
+
 // Change text input to number
 function choiceToNumber(choice) {
     // console.log(typeof(choice));
@@ -48,6 +32,7 @@ function choiceToNumber(choice) {
     }
 }
 
+
 // Change number to choice
 function numberToChoice(number) {
     switch (number) {
@@ -60,8 +45,22 @@ function numberToChoice(number) {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    //computerSelection and playerSelection are numbers
+function generateComputerSelection() {
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    randomNumber %= 3;
+    if(randomNumber === 0) {
+        return 0; //0>2 "Rock"
+    }
+    else if(randomNumber === 1) {
+        return 1; //1>0 "Paper"
+    }
+    else if(randomNumber === 2) {
+        return 2; //2>1 "Scissors"
+    }
+}
+
+function compareSelection(playerSelection, computerSelection) {
+//computerSelection and playerSelection are numbers
 
     if (playerSelection === computerSelection) {
         return "Draw";
@@ -72,14 +71,31 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection === 0 && computerSelection === 1 || playerSelection === 1 && computerSelection === 2 || playerSelection === 2 && computerSelection === 0) {
         return "Computer won";
     }
-    else {
-        return "Weird";
-    }
 }
 
-// let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
-// playerChoice = choiceToNumber(playerChoice);
-// // console.log(playerChoice); //number
+// When button is clicked, get the value of player's choice
+function getChoiceValue() {
+    let playerSelection = +this.value;
+    console.log(`Player: ${playerSelection}`);
+    let computerSelection = generateComputerSelection();
+    console.log(`Computer: ${computerSelection}`);
+    let result = compareSelection(playerSelection, computerSelection);
+    console.log(result);
+    return result;
+}
+
+// PlayRound only when user click a button
+function playRound() {
+}
+const choices = document.querySelectorAll('.choices'); // return a node list
+// Set up event listener
+choices.forEach((choice) => {
+    choice.addEventListener('click', getChoiceValue);
+    
+});
+
+    
+playRound();
 
 function game() {
     let roundCount = 0;
@@ -96,8 +112,7 @@ function game() {
     }
 }
 
-game();
-
+// game();
 
 
 // Pseudo code:
