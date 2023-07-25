@@ -1,47 +1,12 @@
-function getComputerChoice() {
-    // Generate rock, paper, or stone
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
-    randomNumber %= 3;
-    if(randomNumber === 0) {
-        return 0; //0>2 "Rock"
-    }
-    else if(randomNumber === 1) {
-        return 1; //1>0 "Paper"
-    }
-    else if(randomNumber === 2) {
-        return 2; //2>1 "Scissors"
-    }
-}
-
-
-// Change text input to number
-function choiceToNumber(choice) {
-    // console.log(typeof(choice));
-    let result;
-    if (choice.toLowerCase() == "rock") {
-        result = 0;
-        return result;
-    } else if (choice.toLowerCase() == "paper") {
-        result = 1;
-        return result;
-    } else if (choice.toLowerCase() == "scissors") {
-        result = 2;
-        return result;
-    } else {
-        return false;
-    }
-}
-
-
 // Change number to choice
 function numberToChoice(number) {
     switch (number) {
         case 0:
-            return "rock";
+            return "Rock";
         case 1:
-            return "paper";
+            return "Paper";
         case 2:
-            return 'scissors';
+            return 'Scissors';
     }
 }
 
@@ -60,7 +25,7 @@ function generateComputerSelection() {
 }
 
 
-// Initialize score
+// Initialize score`
 let playerScore = 0;
 let computerScore = 0;
 
@@ -83,19 +48,42 @@ function compareSelection(playerSelection, computerSelection) {
 // When button is clicked, get the value of player's choice and get result
 function playRound() {
     let playerSelection = +this.value;
-    console.log(`Player: ${playerSelection}`);
+    // console.log(`Player: ${playerSelection}`);
     let computerSelection = generateComputerSelection();
-    console.log(`Computer: ${computerSelection}`);
+    // console.log(`Computer: ${computerSelection}`);
     let result = compareSelection(playerSelection, computerSelection);
-    console.log(result);
     result = `${result} \n ${playerScore} - ${computerScore}`;
     console.log(result);
     const div = document.querySelector('.score');
     div.textContent = result;
-    console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
-    return result;
+    // console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
+    
+    announceWinner();
 }
 
+function disableButtons() {
+    const choices = document.querySelectorAll('.choices');
+    choices.forEach((choice) => {
+        choice.disabled = true;
+    })
+}
+
+
+function announceWinner() {
+    const ending = document.querySelector('.ending');
+    // if one reaches 5, announce winner
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore > computerScore) {
+            ending.textContent = "Player Won the Game!";
+            console.log("Player Won the Game!")
+            disableButtons();
+        } else if (playerScore < computerScore) {
+            ending.textContent = "Computer Won the Game!";
+            console.log("Computer Won the Game!")
+            disableButtons();
+        }
+    }
+}
 
 // start game only when user click a start
 function startGame() {
@@ -106,7 +94,9 @@ function startGame() {
         choice.addEventListener('click', playRound);
     });
 
+    
 }
+
 
     
 startGame();
