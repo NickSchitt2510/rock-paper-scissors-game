@@ -59,6 +59,11 @@ function generateComputerSelection() {
     }
 }
 
+
+// Initialize score
+let playerScore = 0;
+let computerScore = 0;
+
 function compareSelection(playerSelection, computerSelection) {
 //computerSelection and playerSelection are numbers
 
@@ -66,15 +71,16 @@ function compareSelection(playerSelection, computerSelection) {
         return "Draw";
     }
     else if (playerSelection === 0 && computerSelection === 2 || playerSelection === 1 && computerSelection === 0 || playerSelection === 2 && computerSelection === 1) {
+        playerScore++;
         return "Player won";
     }
     else if (playerSelection === 0 && computerSelection === 1 || playerSelection === 1 && computerSelection === 2 || playerSelection === 2 && computerSelection === 0) {
+        computerScore++;
         return "Computer won";
     }
 }
 
-// When button is clicked, get the value of player's choice
-// Rename to playRound
+// When button is clicked, get the value of player's choice and get result
 function playRound() {
     let playerSelection = +this.value;
     console.log(`Player: ${playerSelection}`);
@@ -82,36 +88,30 @@ function playRound() {
     console.log(`Computer: ${computerSelection}`);
     let result = compareSelection(playerSelection, computerSelection);
     console.log(result);
+    result = `${result} \n ${playerScore} - ${computerScore}`;
+    console.log(result);
+    const div = document.querySelector('.score');
+    div.textContent = result;
+    console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
     return result;
 }
 
-// PlayRound only when user click a button
-// rename to startGame
+
+// start game only when user click a start
 function startGame() {
+
+    // Set up event listener. Click to playRound.
     const choices = document.querySelectorAll('.choices'); // return a node list
-    // Set up event listener
     choices.forEach((choice) => {
         choice.addEventListener('click', playRound);
     });
+
 }
 
     
 startGame();
 
-function game() {
-    let roundCount = 0;
-    while (roundCount < 5)
-    {
-        let playerChoice = prompt("Choose your option", "Rock, Paper, or Scissors?");
-        console.log(playerChoice);
-        playerChoice = choiceToNumber(playerChoice);
-        console.log(playerChoice);
-        computerChoice = getComputerChoice();
-        console.log(computerChoice);
-        console.log(playRound(playerChoice, computerChoice));
-        roundCount++;
-    }
-}
+
 
 // game();
 
