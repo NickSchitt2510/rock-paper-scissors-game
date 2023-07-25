@@ -2,13 +2,14 @@
 function numberToChoice(number) {
     switch (number) {
         case 0:
-            return "Rock";
+            return "✊";
         case 1:
-            return "Paper";
+            return "✋";
         case 2:
-            return 'Scissors';
+            return '✌️';
     }
 }
+
 
 function generateComputerSelection() {
     let randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -24,10 +25,6 @@ function generateComputerSelection() {
     }
 }
 
-
-// Initialize score`
-let playerScore = 0;
-let computerScore = 0;
 
 function compareSelection(playerSelection, computerSelection) {
 //computerSelection and playerSelection are numbers
@@ -45,21 +42,11 @@ function compareSelection(playerSelection, computerSelection) {
     }
 }
 
-// When button is clicked, get the value of player's choice and get result
-function playRound() {
-    let playerSelection = +this.value;
-    // console.log(`Player: ${playerSelection}`);
-    let computerSelection = generateComputerSelection();
-    // console.log(`Computer: ${computerSelection}`);
-    let result = compareSelection(playerSelection, computerSelection);
-    result = `${result} \n ${playerScore} - ${computerScore}`;
-    console.log(result);
-    const div = document.querySelector('.score');
-    div.textContent = result;
-    // console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
-    
-    announceWinner();
-}
+
+// Initialize score
+let playerScore = 0;
+let computerScore = 0;
+
 
 function disableButtons() {
     const choices = document.querySelectorAll('.choices');
@@ -71,24 +58,42 @@ function disableButtons() {
 
 function announceWinner() {
     const ending = document.querySelector('.ending');
-    // if one reaches 5, announce winner
+    // if either score reaches 5, announce the winner
     if (playerScore === 5 || computerScore === 5) {
         if (playerScore > computerScore) {
             ending.textContent = "Player Won the Game!";
-            console.log("Player Won the Game!")
             disableButtons();
         } else if (playerScore < computerScore) {
             ending.textContent = "Computer Won the Game!";
-            console.log("Computer Won the Game!")
             disableButtons();
         }
     }
 }
 
+// When button is clicked, get the value of player's choice and get result
+function playRound() {
+    let playerSelection = +this.value;
+    let computerSelection = generateComputerSelection();
+    let result = compareSelection(playerSelection, computerSelection);
+    
+    // Display selections of both players using emoji
+    const selection = document.querySelector('.selection');
+    selection.textContent = `Player: ${numberToChoice(playerSelection)}\nComputer: ${numberToChoice(computerSelection)}`;
+    
+    // Display round result
+    result = `${result} \n ${playerScore} - ${computerScore}`;
+    const roundResult = document.querySelector('.score');
+    roundResult.textContent = result;
+    // console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
+    
+    announceWinner();
+}
+
+
 // start game only when user click a start
 function startGame() {
 
-    // Set up event listener. Click to playRound.
+    // Set up event listener. Click either button to playRound.
     const choices = document.querySelectorAll('.choices'); // return a node list
     choices.forEach((choice) => {
         choice.addEventListener('click', playRound);
@@ -97,20 +102,16 @@ function startGame() {
     
 }
 
-
-    
 startGame();
+
+// const start = document.querySelector('.start');
+// start.addEventListener('click', startGame())
+
+// function changeToGameUI() {
+//     // element creation?
+
+// }
 
 
 
 // game();
-
-
-// Pseudo code:
-// get computer choice
-// get user's choice
-// compare the choices
-// output win
-// if won then win add win counter
-// if lose then lose count
-// if draw then one more game 
