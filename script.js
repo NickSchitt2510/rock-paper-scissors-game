@@ -74,7 +74,8 @@ function compareSelection(playerSelection, computerSelection) {
 }
 
 // When button is clicked, get the value of player's choice
-function getChoiceValue() {
+// Rename to playRound
+function playRound() {
     let playerSelection = +this.value;
     console.log(`Player: ${playerSelection}`);
     let computerSelection = generateComputerSelection();
@@ -85,16 +86,17 @@ function getChoiceValue() {
 }
 
 // PlayRound only when user click a button
-function playRound() {
+// rename to startGame
+function startGame() {
     const choices = document.querySelectorAll('.choices'); // return a node list
     // Set up event listener
     choices.forEach((choice) => {
-        choice.addEventListener('click', getChoiceValue);
+        choice.addEventListener('click', playRound);
     });
 }
 
     
-playRound();
+startGame();
 
 function game() {
     let roundCount = 0;
