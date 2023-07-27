@@ -1,0 +1,70 @@
+/* color-pallet {
+    color: #5CA7BA#FEB54E #A7B781 #F5C4DB
+} */
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+/* default setting */
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    /* Stretch the space to match the window */
+    height: 100%;
+}
+
+body {
+    /* Stretch the space to match the window */
+    height: 100%;
+    font-family: 'Aldrich', sans-serif;
+    background-color: #5CA7BA;
+    box-sizing: border-box;
+}
+
+.container {
+    /* Stretch the space to match the window */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Outer layer reset */
+header, main, footer {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: 1.5rem 5rem;
+    padding: 1rem 1rem;
+    font-size: 32px;
+    background-color: #FEB54E;
+    border: 4px solid black;
+    justify-content: flex-start;
+}
+
+h2 {
+    margin: 0;
+    padding: 1rem 1rem;
+    text-align: center;
+    background-color: #F5F1EC;
+    border: 4px solid black;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 1.5rem 0;
+    font-size: 16px;
+    background-color: #F5F1EC;
+    text-align: center;
+    justify-content: flex-end;
+}
+
+a, a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    list-style: none;
+}

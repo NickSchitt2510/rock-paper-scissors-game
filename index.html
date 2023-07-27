@@ -5,24 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 
-    1. Create the basic UI v
-    2. Create the javascript that works v
-    3. Add start game and play again button 
-     -->
-
      <!-- <button class="start-btn">Start</button> -->
-
-     <h2>Rock Paper Scissors Game</h2>
-     <button class="choices" id="rock" value="0">✊</button>
-     <button class="choices" id="paper" value="1">✋</button>
-     <button class="choices" id="scissors" value="2">✌️</button>
-     
-     <div class="selection"></div>
-     <div class="score"></div>
-     <div class="ending"></div>
+    <div class="container">
+        <header>
+            <h2>Rock Paper Scissors Game</h2>
+        </header>
+        <main>
+            <section>
+                <button class="choices" id="rock" value="0">✊</button>
+                <button class="choices" id="paper" value="1">✋</button>
+                <button class="choices" id="scissors" value="2">✌️</button>
+            </section>
+            <section>
+                <div class="selection"></div>
+                <div class="score"></div>
+            </section>
+            <section>
+                <div class="ending"></div>
+            </section>
+        </main>
+        <footer>
+            <div>Made by <a href="https://github.com/NickSchitt2510">Nichole</a>. | Copyright © The Odin Project 2023</div>
+        </footer>
+    </div>
 </body>
 
 <script>
