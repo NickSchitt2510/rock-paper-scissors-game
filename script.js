@@ -34,11 +34,11 @@ function compareSelection(playerSelection, computerSelection) {
     }
     else if (playerSelection === 0 && computerSelection === 2 || playerSelection === 1 && computerSelection === 0 || playerSelection === 2 && computerSelection === 1) {
         playerScore++;
-        return "Player won";
+        return "Player Won This Round";
     }
     else if (playerSelection === 0 && computerSelection === 1 || playerSelection === 1 && computerSelection === 2 || playerSelection === 2 && computerSelection === 0) {
         computerScore++;
-        return "Computer won";
+        return "Computer Won This Round";
     }
 }
 
@@ -77,9 +77,12 @@ function playRound() {
     let result = compareSelection(playerSelection, computerSelection);
     
     // Display selections of both players using emoji
-    const selection = document.querySelector('.selection');
-    selection.textContent = `Player: ${numberToChoice(playerSelection)}\nComputer: ${numberToChoice(computerSelection)}`;
+    const player = document.querySelector('.player');
+    player.textContent = numberToChoice(playerSelection);
     
+    const computer = document.querySelector('.computer');
+    computer.textContent = numberToChoice(computerSelection)
+
     // Display round result
     result = `${result} \n ${playerScore} - ${computerScore}`;
     const roundResult = document.querySelector('.score');
