@@ -116,13 +116,13 @@ td {
     font-size: 48px;
 }
 
-.score {
+#score {
     padding: 3rem 1rem;
     font-size: 32px;
 }
 
 /* game result section */
-.ending {
+#ending {
     margin: 1rem;
     font-size: 32px;
     font-weight: 1000;

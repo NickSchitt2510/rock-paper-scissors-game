@@ -6,7 +6,7 @@ let computerScore = 0;
 function startGame() {
 
     // Transition to playing ui after clicking start button
-    const start = document.querySelector('.start-game');
+    const start = document.querySelector('#start-game');
     start.addEventListener('click', () => {
         start.setAttribute('hidden', true);
         document.getElementById('play-game').removeAttribute('hidden');
@@ -29,17 +29,17 @@ function playRound() {
     let result = compareSelection(playerSelection, computerSelection);
     
     // Display selections of both players using emoji
-    const player = document.querySelector('.player');
+    const player = document.querySelector('#player');
     player.textContent = numberToChoice(playerSelection);
     
-    const computer = document.querySelector('.computer');
+    const computer = document.querySelector('#computer');
     computer.textContent = numberToChoice(computerSelection)
 
     // Display round result and score
-    const roundResult = document.querySelector('.result');
+    const roundResult = document.querySelector('#result');
     roundResult.textContent = `${result}`;
 
-    const score = document.querySelector('.score');
+    const score = document.querySelector('#score');
     score.textContent = `${playerScore} - ${computerScore}`;
     
     // if either score reaches 5, announce the winner
@@ -96,16 +96,16 @@ function numberToChoice(number) {
 
 function announceWinner() {
     // Clear round result
-    const roundResult = document.querySelector('.result');
+    const roundResult = document.querySelector('#result');
     roundResult.textContent = '';
 
     // Show game result
     const ending = document.createElement('div');
-    ending.classList.add('ending');
-    const section = document.querySelector('.game');
+    ending.setAttribute('id', 'ending');
+    const section = document.querySelector('#game');
     section.appendChild(ending);
-
-    const result = document.querySelector('.ending');
+    
+    const result = document.querySelector('#ending');
     if (playerScore > computerScore) {
         result.textContent = "You Won the Game!";
         disableButtons();
@@ -113,7 +113,7 @@ function announceWinner() {
         result.textContent = "Computer Won the Game!";
         disableButtons();
     }
-
+    
     addPlayAgainButton();
 }
 
@@ -130,10 +130,11 @@ function addPlayAgainButton() {
     const button = document.createElement('button');
     button.classList.add('function-btn');
     button.textContent = 'Play Again';
+    const section = document.querySelector('#game');
     section.appendChild(button);
 
     // Set up event listener to play again
-    const againButton = document.querySelector('.game > button');
+    const againButton = document.querySelector('#game > button');
     againButton.addEventListener('click', restartGame);
 }
 
@@ -141,8 +142,11 @@ function addPlayAgainButton() {
 function restartGame() {
     // Undo all elements changes
     removeAddedElements();
-    document.querySelector('.score').textContent = '';
-    document.querySelector('.result').textContent = '';
+    document.querySelector('#score').textContent = '';
+    document.querySelector('#result').textContent = '';
+    document.querySelector('#player').textContent = '';
+    document.querySelector('#computer').textContent = '';
+
 
     // Set up event listener for choices buttons.
     const choices = document.querySelectorAll('.choices');
@@ -164,7 +168,7 @@ function restartGame() {
 
 
 function removeAddedElements() {
-    const game = document.querySelector('.game');
+    const game = document.querySelector('#game');
     console.log(game);
     removeAllChild(game);
 }

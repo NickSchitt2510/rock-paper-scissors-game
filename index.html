@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     <!-- <button class="start-btn">Start</button> -->
     <div class="container">
         <header>
             <h2>Rock Paper Scissors Game</h2>
         </header>
         <main>
             <!-- Start game ui -->
-            <section class="start-game">
+            <section id="start-game">
                 <p>Play against the computer and win the game by reaching 5 scores first!</p>
                 <button class="function-btn">Start</button>
             </section>
@@ -28,27 +27,27 @@
                 <button class="choices" value="2">✌️</button>
                 
                 <!-- Play round result section-->
-                <div class="selection">
+                <div id="selection">
                     <table>
                         <tr>
                             <th>You</th>
                             <th>Computer</th>
                         </tr>
                         <tr>
-                            <td class="player"></td>
-                            <td class="computer"></td>
+                            <td id="player"></td>
+                            <td id="computer"></td>
                         </tr>
                     </table>
                 </div>
                 <div class="round">
                     <table>
-                        <tr class="score"></tr>
-                        <tr class="result"></tr>
+                        <tr id="score"></tr>
+                        <tr id="result"></tr>
                     </table>
                 </div>
 
                 <!-- Play game result section -->
-                <div class="game">
+                <div id="game">
                     <!-- <div class="ending">Player/Computer Won the Game</div> -->
                     <!-- <button class="function-btn">Play Again</button> -->
                 </div>
