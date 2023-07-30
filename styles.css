@@ -60,6 +60,7 @@ main {
 }
 
 p {
+    margin: 1rem;
     font-size: 20px;
 }
 
@@ -81,16 +82,20 @@ table {
 }
 
 th {
-    width: 150px;
+    width: 130px;
     text-align: center;
+    padding: 4px;
+    background-color: #F5F1EC;
+    border: 3px solid black;
 }
 
 td {
     font-size: 48px;
 }
 
-.result, .score {
-    margin: 1rem;
+.score {
+    padding: 3rem 1rem;
+    font-size: 32px;
 }
 
 /* ending section */
@@ -98,7 +103,7 @@ td {
     margin: 1rem;
     font-size: 32px;
     font-weight: 1000;
-    padding: 1rem;
+    padding: 1rem 1rem;
     background-color: #F5F1EC;
     border: 3px solid black;
     box-shadow: 6px 6px #A7B781;
@@ -117,7 +122,7 @@ td {
 
 /* footer section */
 footer {
-    margin: 1rem 0;
+    margin-top: 1rem;
     padding: 1.5rem 0;
     font-size: 16px;
     background-color: #F5F1EC;

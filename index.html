@@ -14,21 +14,22 @@
             <h2>Rock Paper Scissors Game</h2>
         </header>
         <main>
+            <!-- Start game ui -->
             <section class="start-game">
                 <p>Play against the computer and win the game by reaching 5 scores first!</p>
                 <button class="function-btn">Start</button>
             </section>
-            <section class="play-game">
+            <section id="play-game" hidden>
                 <!-- Choices section -->
-                <button class="choices" id="rock" value="0">✊</button>
-                <button class="choices" id="paper" value="1">✋</button>
-                <button class="choices" id="scissors" value="2">✌️</button>
+                <button class="choices" value="0">✊</button>
+                <button class="choices" value="1">✋</button>
+                <button class="choices" value="2">✌️</button>
                 
                 <!-- Play round result section-->
                 <div class="selection">
                     <table>
                         <tr>
-                            <th>Player</th>
+                            <th>You</th>
                             <th>Computer</th>
                         </tr>
                         <tr>
