@@ -14,12 +14,17 @@
             <h2>Rock Paper Scissors Game</h2>
         </header>
         <main>
-            <section>
+            <section class="start-game">
+                <p>Play against the computer and win the game by reaching 5 scores first!</p>
+                <button class="function-btn">Start</button>
+            </section>
+            <section class="play-game">
+                <!-- Choices section -->
                 <button class="choices" id="rock" value="0">✊</button>
                 <button class="choices" id="paper" value="1">✋</button>
                 <button class="choices" id="scissors" value="2">✌️</button>
-            </section>
-            <section>
+                
+                <!-- Play round result section-->
                 <div class="selection">
                     <table>
                         <tr>
@@ -38,11 +43,12 @@
                         <tr class="result"></tr>
                     </table>
                 </div>
-            </section>
-            <section class="game">
-                <!-- <div class="ending">Player/Computer Won the Game</div> -->
-                <!-- <button class="function-btn">Play Again</button> -->
-            </section>
+
+                <!-- Play game result section -->
+                <div class="game">
+                    <!-- <div class="ending">Player/Computer Won the Game</div> -->
+                    <!-- <button class="function-btn">Play Again</button> -->
+                </div>
         </main>
         <footer>
             <div>Made by <a href="https://github.com/NickSchitt2510">Nichole</a>. | Copyright © The Odin Project 2023</div>
