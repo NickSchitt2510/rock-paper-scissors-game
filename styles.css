@@ -85,6 +85,10 @@ td {
     font-size: 48px;
 }
 
+.result, .score {
+    margin: 1rem;
+}
+
 /* ending section */
 .ending {
     margin: 1rem;

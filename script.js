@@ -59,7 +59,7 @@ function disableButtons() {
 function announceWinner() {
     const ending = document.createElement('div');
     ending.classList.add('ending');
-    const section = document.querySelector('.result');
+    const section = document.querySelector('.game');
     section.appendChild(ending);
 
     const result = document.querySelector('.ending');
@@ -77,7 +77,7 @@ function announceWinner() {
     button.textContent = 'Play Again';
     section.appendChild(button);
 
-    const againButton = document.querySelector('.result > button');
+    const againButton = document.querySelector('.game > button');
     againButton.addEventListener('click', restartGame);
 }
 
@@ -95,10 +95,11 @@ function playRound() {
     computer.textContent = numberToChoice(computerSelection)
 
     // Display round result
-    result = `${result} \n ${playerScore} - ${computerScore}`;
-    const roundResult = document.querySelector('.score');
-    roundResult.textContent = result;
-    // console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
+    const roundResult = document.querySelector('.result');
+    roundResult.textContent = `${result}`;
+
+    const score = document.querySelector('.score');
+    score.textContent = `${playerScore} - ${computerScore}`;
     
     // if either score reaches 5, announce the winner
     if (playerScore === 5 || computerScore === 5) {
@@ -122,7 +123,7 @@ function startGame() {
 
 function restartGame() {
     // undo all elements
-    
+
     // reset scores
     // Set up event listener. Click either button to playRound.
     const choices = document.querySelectorAll('.choices'); // return a node list
