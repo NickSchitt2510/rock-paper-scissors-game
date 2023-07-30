@@ -57,17 +57,28 @@ function disableButtons() {
 
 
 function announceWinner() {
-    const ending = document.querySelector('.ending');
-    // if either score reaches 5, announce the winner
-    if (playerScore === 5 || computerScore === 5) {
-        if (playerScore > computerScore) {
-            ending.textContent = "Player Won the Game!";
-            disableButtons();
-        } else if (playerScore < computerScore) {
-            ending.textContent = "Computer Won the Game!";
-            disableButtons();
-        }
+    const ending = document.createElement('div');
+    ending.classList.add('ending');
+    const section = document.querySelector('.result');
+    section.appendChild(ending);
+
+    const result = document.querySelector('.ending');
+    
+    if (playerScore > computerScore) {
+        result.textContent = "Player Won the Game!";
+        disableButtons();
+    } else if (playerScore < computerScore) {
+        result.textContent = "Computer Won the Game!";
+        disableButtons();
     }
+
+    const button = document.createElement('button');
+    button.classList.add('function-btn');
+    button.textContent = 'Play Again';
+    section.appendChild(button);
+
+    const againButton = document.querySelector('.result > button');
+    againButton.addEventListener('click', restartGame);
 }
 
 // When button is clicked, get the value of player's choice and get result
@@ -89,7 +100,11 @@ function playRound() {
     roundResult.textContent = result;
     // console.log(`Player - Computer: ${playerScore} - ${computerScore}`);
     
-    announceWinner();
+    // if either score reaches 5, announce the winner
+    if (playerScore === 5 || computerScore === 5) {
+        
+        announceWinner();
+    }
 }
 
 
@@ -101,8 +116,19 @@ function startGame() {
     choices.forEach((choice) => {
         choice.addEventListener('click', playRound);
     });
-
     
+    
+}
+
+function restartGame() {
+    // undo all elements
+    
+    // reset scores
+    // Set up event listener. Click either button to playRound.
+    const choices = document.querySelectorAll('.choices'); // return a node list
+    choices.forEach((choice) => {
+        choice.addEventListener('click', playRound);
+    });
 }
 
 startGame();
